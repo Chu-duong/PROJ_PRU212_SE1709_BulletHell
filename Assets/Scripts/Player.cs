@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Bullets;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
+using Weapons;
 
 public class Player : MonoBehaviour
 {
@@ -39,19 +39,11 @@ public class Player : MonoBehaviour
             transform.position += Vector3.right * MovementSpeed * Time.deltaTime;
         }
 
-        // Click to shoot
-        if (Input.GetMouseButtonDown(0)) // Left click
+        // Left click to shoot
+        if (Input.GetMouseButtonDown(0))
         {
-            GameObject bullet = Instantiate(
-                BulletPrefab,
-                BulletSpawnPoint.transform.position,
-                BulletSpawnPoint.transform.rotation
-            );
-            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 distAngleVector = (worldMousePosition - transform.position).normalized;
-            bullet.GetComponent<PlayerBullet>().vec = distAngleVector;
+            Shoot();
         }
-
         //BulletSpawnPoint.transform.rotation = Quaternion.Euler(0f, 0f, GetAngle());
     }
 
@@ -60,6 +52,18 @@ public class Player : MonoBehaviour
         Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 distAngleVector = (worldMousePosition - transform.position).normalized;
         return Vector3.Angle(distAngleVector, Vector3.right);
+    }
+
+    private void Shoot()
+    {
+        GameObject bullet = Instantiate(
+            BulletPrefab,
+            BulletSpawnPoint.transform.position,
+            BulletSpawnPoint.transform.rotation
+        );
+        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 distAngleVector = (worldMousePosition - transform.position).normalized;
+        bullet.GetComponent<PlayerBullet>().vec = distAngleVector;
     }
 
     private void SetMinusHealth(float MinusHP)
