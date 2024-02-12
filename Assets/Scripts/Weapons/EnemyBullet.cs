@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Bullets
+namespace Weapons
 {
     public class EnemyBullet : MonoBehaviour
     {
-        private float Damage;
+        private float _damage;
 
         // Start is called before the first frame update
         void Start() { }
@@ -18,7 +16,7 @@ namespace Bullets
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                Player.MinusHealth?.Invoke(Damage);
+                Player.MinusHealth?.Invoke(_damage);
             }
             gameObject.SetActive(false);
         }

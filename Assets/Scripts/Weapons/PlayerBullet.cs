@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Bullets
+namespace Weapons
 {
     public class PlayerBullet : MonoBehaviour
     {
