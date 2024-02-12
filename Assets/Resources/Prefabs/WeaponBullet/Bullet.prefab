@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletSpeed: 100
+  TimeOut: 10
   vec: {x: 0, y: 0}
 --- !u!50 &2955298852382295267
 Rigidbody2D:
