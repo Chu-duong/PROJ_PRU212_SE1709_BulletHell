@@ -195,6 +195,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 5
   MovementSpeed: 10
+  BulletSpawnPoint: {fileID: 0}
+  BulletPrefab: {fileID: 0}
 --- !u!1 &6122497249606951465
 GameObject:
   m_ObjectHideFlags: 0
