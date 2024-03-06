@@ -84,6 +84,13 @@ public class Player : MonoBehaviour
 
     private void setAnimationState()
     {
+        if(Mathf.Abs(MovementSpeed) == 0)
+        {
+            John.SetBool("isWalkUp", false);
+            John.SetBool("isWalkLeft", false);
+            John.SetBool("isWalkDown", false);
+            John.SetBool("isWalkRight", false);
+        }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             John.SetBool("isWalkUp", true);
         else
