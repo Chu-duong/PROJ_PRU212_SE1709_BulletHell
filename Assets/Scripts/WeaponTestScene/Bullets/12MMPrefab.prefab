@@ -162,6 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: {x: 0, y: 0}
-  TimeOut: 3
+  TimeOut: 4
   Speed: 50
   Damage: 10

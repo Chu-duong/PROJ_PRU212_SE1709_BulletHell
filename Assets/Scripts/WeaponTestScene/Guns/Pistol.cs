@@ -1,4 +1,3 @@
-using UnityEngine;
 using WeaponTestScene.Bullets;
 using WeaponTestScene.Guns;
 
@@ -10,9 +9,17 @@ namespace WeaponTestScene
         {
             if (!base.Shoot())
                 return false;
-            Instantiate(Bullet, transform.position, Bullet.transform.rotation)
-                .GetComponent<BaseBullet>()
-                .Direction = GetVectorBaseRotateAngle(0);
+            foreach (var bullet in BulletController.ListNineMMBullets)
+            {
+                if (!bullet.activeInHierarchy)
+                {
+                    bullet.transform.position = transform.position;
+                    bullet.transform.rotation = transform.rotation;
+                    bullet.GetComponent<BaseBullet>().Direction = GetVectorBaseRotateAngle(0);
+                    bullet.SetActive(true);
+                    break;
+                }
+            }
             return true;
         }
     }

@@ -15,9 +15,10 @@ public class FiveDotSixTwoBullet : BaseBullet
     // Update is called once per frame
     void Update()
     {
-        _rb.velocity = Direction * Speed;
+        _rb.velocity = Direction.normalized * Speed;
         _timeout += Time.deltaTime;
-        if (!(_timeout >= TimeOut)) return;
+        if (!(_timeout >= TimeOut))
+            return;
         gameObject.SetActive(false);
         _timeout = 0;
     }
