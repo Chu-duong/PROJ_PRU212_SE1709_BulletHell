@@ -5,10 +5,17 @@ namespace WeaponTestScene.Guns
 {
     public abstract class BaseRangeWeapon : BaseWeapon
     {
-        [SerializeField] public GameObject Bullet;
-        [SerializeField] public int BulletPerMag;
-        [SerializeField] public float ReloadTime;
-        [SerializeField] public float RecoilTime;
+        [SerializeField]
+        public GameObject Bullet;
+
+        [SerializeField]
+        public int BulletPerMag;
+
+        [SerializeField]
+        public float ReloadTime;
+
+        [SerializeField]
+        public float RecoilTime;
         private float timeCheck;
         protected int checkMag;
         private bool allowShooting;
@@ -22,11 +29,13 @@ namespace WeaponTestScene.Guns
         private void Update()
         {
             // If user not shoot, then return
-            if (timeCheck <= 0) return;
+            if (timeCheck <= 0)
+                return;
 
             // Else start the recoil count down
             timeCheck -= Time.deltaTime;
-            if (timeCheck > 0) return;
+            if (timeCheck > 0)
+                return;
             // Recoil check
             if (checkMag > 0)
             {
@@ -44,6 +53,13 @@ namespace WeaponTestScene.Guns
         {
             Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             return (worldMousePosition - transform.position).normalized;
+        }
+
+        protected Vector2 GetVectorBaseRotateAngle(float angle)
+        {
+            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            return Quaternion.AngleAxis(angle, Vector3.forward)
+                * (worldMousePosition - transform.position).normalized;
         }
 
         public virtual bool Shoot()

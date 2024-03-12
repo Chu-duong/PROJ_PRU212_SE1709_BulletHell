@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faed74de6791b48219d264e95f9aeb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeOut: 5
-  Speed: 10
+  Direction: {x: 0, y: 0}
+  TimeOut: 3
+  Speed: 50
   Damage: 10

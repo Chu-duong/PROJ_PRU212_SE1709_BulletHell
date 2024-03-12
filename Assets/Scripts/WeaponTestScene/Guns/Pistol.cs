@@ -8,9 +8,11 @@ namespace WeaponTestScene
     {
         public override bool Shoot()
         {
-            if (!base.Shoot()) return false;
-            Instantiate(Bullet, transform.position, Bullet.transform.rotation).GetComponent<BaseBullet>().Direction =
-                GetAngleVector();
+            if (!base.Shoot())
+                return false;
+            Instantiate(Bullet, transform.position, Bullet.transform.rotation)
+                .GetComponent<BaseBullet>()
+                .Direction = GetVectorBaseRotateAngle(0);
             return true;
         }
     }
