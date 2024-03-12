@@ -128,17 +128,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3339988547360836851, guid: d1ad5c4fe8c900c0cb4d227c9c4848d1, type: 3}
   m_PrefabInstance: {fileID: 6493200780233547748}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &607518612 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4277950389624526497, guid: d1ad5c4fe8c900c0cb4d227c9c4848d1, type: 3}
-  m_PrefabInstance: {fileID: 6493200780233547748}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4602c29257e36f699ada764ff9862cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &926464775
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcba85c03ada32cc9bf8b112ae05a470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 607518612}
+  Weapon: {fileID: 1725627110}
 --- !u!212 &926464777
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -366,7 +355,7 @@ MonoBehaviour:
   TwelveMMBullet: {fileID: 1863430134432760458, guid: 99933022517c91fd59d4080dc895d3dd, type: 3}
   FiveDotSixTwoBulletAmo: 30
   NineMMBulletAmo: 7
-  TwelveMMBulletAmo: 15
+  TwelveMMBulletAmo: 21
 --- !u!4 &994086835
 Transform:
   m_ObjectHideFlags: 0

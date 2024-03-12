@@ -5,15 +5,14 @@ using WeaponTestScene.Guns;
 
 public class Shotgun : BaseRangeWeapon
 {
-    const float DIFF = 20f;
-    const int bulletPerShot = 3;
+    private const float DIFF = 20f;
+    private const int bulletPerShot = 3;
+    private List<GameObject> bullets = new();
 
     public override bool Shoot()
     {
         if (!base.Shoot())
             return false;
-
-        List<GameObject> bullets = new();
 
         for (int i = 0; i < BulletController.ListTwelveMMBullets.Count; i++)
         {
@@ -38,6 +37,7 @@ public class Shotgun : BaseRangeWeapon
                 Setup(bullets[i], -DIFF);
             }
         }
+        bullets.Clear();
         return true;
     }
 
