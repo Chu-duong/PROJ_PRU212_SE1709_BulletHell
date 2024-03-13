@@ -48,6 +48,7 @@ public class Shotgun : BaseRangeWeapon
         bullet.transform.position = position;
         bullet.transform.rotation = rotation;
         bullet.GetComponent<BaseBullet>().Direction = GetVectorBaseRotateAngle(angle);
+        bullet.GetComponent<BaseBullet>().Damage = damage;
         bullet.SetActive(true);
     }
 }

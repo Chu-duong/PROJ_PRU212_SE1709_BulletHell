@@ -12,7 +12,6 @@ namespace WeaponTestScene.Bullets
         [SerializeField]
         public float Speed;
 
-        [SerializeField]
         public float Damage;
 
         private void OnTriggerEnter2D(Collider2D collision)
