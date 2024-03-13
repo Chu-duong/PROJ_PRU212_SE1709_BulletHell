@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2955298852382295267}
   - component: {fileID: -6634371767027657117}
   m_Layer: 6
-  m_Name: 562MMPrefab 2
+  m_Name: 562MMPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42e7a51b0b573a64a952f7b0fe4fcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeOut: 10
+  Direction: {x: 0, y: 0}
+  TimeOut: 4
   Speed: 50
   Damage: 5

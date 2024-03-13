@@ -58,8 +58,10 @@ namespace WeaponTestScene.Guns
         protected Vector2 GetVectorBaseRotateAngle(float angle)
         {
             Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            return Quaternion.AngleAxis(angle, Vector3.forward)
-                * (worldMousePosition - transform.position).normalized;
+            return (
+                Quaternion.AngleAxis(angle, Vector3.forward)
+                * (worldMousePosition - transform.position)
+            ).normalized;
         }
 
         public virtual bool Shoot()
