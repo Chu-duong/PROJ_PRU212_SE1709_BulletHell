@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverManage : MonoBehaviour
 {
@@ -20,5 +21,17 @@ public class GameOverManage : MonoBehaviour
     {
         gameOverUI.SetActive(true);
 
+    }
+    public void mainMenu()
+    {
+        SceneManager.LoadScene("MenuScreen");
+    } 
+    public void restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void Quit()
+    {
+Application.Quit();
     }
 }
