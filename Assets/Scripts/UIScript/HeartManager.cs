@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HeartManager : MonoBehaviour
 {
     [SerializeField]
-    public  int health = 3;
+    public int health = 3;
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyheart;
