@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 2660467503322074606}
   - component: {fileID: 3032580624005746775}
   - component: {fileID: 7277968404261108743}
+  - component: {fileID: 6255738128409427484}
   m_Layer: 0
   m_Name: John
   m_TagString: Untagged
@@ -242,3 +243,18 @@ MonoBehaviour:
   BulletPrefab: {fileID: 1863430134432760458, guid: d10618ad8d7589b40b056c68a0c44afc, type: 3}
   John: {fileID: 3032580624005746775}
   rb: {fileID: 0}
+--- !u!114 &6255738128409427484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7427429498294592257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a404408149f958d4aa1bafe348a202a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hearts: []
+  fullHeart: {fileID: 0}
+  emptyheart: {fileID: 0}
