@@ -7,6 +7,7 @@ using Weapons;
 
 public class Player : MonoBehaviour
 {
+    public static bool isGameOver;
     public float HP;
     public float MovementSpeed;
     public Transform BulletSpawnPoint;
