@@ -71,7 +71,18 @@ namespace WeaponTestScene.Guns
             --checkMag;
             timeCheck = checkMag > 0 ? RecoilTime : ReloadTime;
             allowShooting = false;
+            RotateToMousePosition();
             return true;
+        }
+
+        private void RotateToMousePosition()
+        {
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 direction = mousePosition - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            float rotation = mousePosition.x < transform.position.x ? 180f : 0f;
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            transform.Rotate(xAngle: rotation, yAngle: 0, zAngle: 0f);
         }
     }
 }
