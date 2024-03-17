@@ -28,6 +28,8 @@ namespace WeaponTestScene.Guns
 
         private void Update()
         {
+            RotateToMousePosition();
+
             // If user not shoot, then return
             if (timeCheck <= 0)
                 return;
@@ -71,10 +73,10 @@ namespace WeaponTestScene.Guns
             --checkMag;
             timeCheck = checkMag > 0 ? RecoilTime : ReloadTime;
             allowShooting = false;
-            RotateToMousePosition();
             return true;
         }
 
+        // Maybe use for player ?
         private void RotateToMousePosition()
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
