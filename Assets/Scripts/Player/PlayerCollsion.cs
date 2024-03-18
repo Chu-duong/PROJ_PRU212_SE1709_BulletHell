@@ -22,9 +22,9 @@ public class PlayerCollsion : MonoBehaviour
     }
     IEnumerator GetHurt()
     {
-        Physics2D.IgnoreLayerCollision(6,8);
+        Physics2D.IgnoreLayerCollision(8,9);
         yield return new WaitForSeconds(3);
-        Physics2D.IgnoreLayerCollision(6, 8, false); 
+        Physics2D.IgnoreLayerCollision(8, 9, false); 
     }
     // Start is called before the first frame update
     void Start()
@@ -35,6 +35,6 @@ public class PlayerCollsion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 }

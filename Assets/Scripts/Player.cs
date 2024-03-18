@@ -54,10 +54,12 @@ public class Player : MonoBehaviour
 			weapon.Shoot();
 			//Shoot();
 		}
+
 		//BulletSpawnPoint.transform.rotation = Quaternion.Euler(0f, 0f, GetAngle());
 
 		//Set animation
 		setAnimationState();
+        
 	}
 
 	float GetAngle()
