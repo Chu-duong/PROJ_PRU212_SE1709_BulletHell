@@ -2111,12 +2111,45 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+<<<<<<< HEAD
+--- !u!1 &1719645853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7427429498294592257, guid: 71cb80162fdffcb44aef786b49aa7c0a, type: 3}
+  m_PrefabInstance: {fileID: 2098539750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1719645859
+Rigidbody2D:
+  serializedVersion: 4
+=======
 --- !u!1 &1529547161
 GameObject:
+>>>>>>> d8ca9e161388e76fbafa65679a4076e2bb7b46ac
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 1719645853}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
+=======
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1529547162}
@@ -3164,6 +3197,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020114283}
   m_CullTransparentMesh: 1
+>>>>>>> d8ca9e161388e76fbafa65679a4076e2bb7b46ac
 --- !u!1001 &2098539750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3212,6 +3246,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 3032580624005746775, guid: 71cb80162fdffcb44aef786b49aa7c0a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d5831d25ca48975438ef557ae1a08df5, type: 2}
+    - target: {fileID: 7277968404261108743, guid: 71cb80162fdffcb44aef786b49aa7c0a, type: 3}
+      propertyPath: MovementSpeed
+      value: 1500
+      objectReference: {fileID: 0}
+=======
     - target: {fileID: 6255738128409427484, guid: 71cb80162fdffcb44aef786b49aa7c0a, type: 3}
       propertyPath: fullHeart
       value: 
@@ -3240,6 +3284,7 @@ PrefabInstance:
       propertyPath: hearts.Array.data[2]
       value: 
       objectReference: {fileID: 1282807252}
+>>>>>>> d8ca9e161388e76fbafa65679a4076e2bb7b46ac
     - target: {fileID: 7427429498294592257, guid: 71cb80162fdffcb44aef786b49aa7c0a, type: 3}
       propertyPath: m_Name
       value: John
@@ -3250,7 +3295,11 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7427429498294592257, guid: 71cb80162fdffcb44aef786b49aa7c0a, type: 3}
       insertIndex: -1
+<<<<<<< HEAD
+      addedObject: {fileID: 1719645859}
+=======
       addedObject: {fileID: 1154163015}
+>>>>>>> d8ca9e161388e76fbafa65679a4076e2bb7b46ac
   m_SourcePrefab: {fileID: 100100000, guid: 71cb80162fdffcb44aef786b49aa7c0a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

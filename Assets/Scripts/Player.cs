@@ -28,25 +28,11 @@ public class Player : MonoBehaviour
 		John = GetComponent<Animator>();
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
-		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) // Up
-		{
-			transform.position += Vector3.up * MovementSpeed * Time.deltaTime;
-		}
-		if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) // Left
-		{
-			transform.position += Vector3.left * MovementSpeed * Time.deltaTime;
-		}
-		if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) // Down
-		{
-			transform.position += Vector3.down * MovementSpeed * Time.deltaTime;
-		}
-		if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) // Right
-		{
-			transform.position += Vector3.right * MovementSpeed * Time.deltaTime;
-		}
+    // Update is called once per frame
+    void Update()
+    {
+        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * MovementSpeed * Time.deltaTime;
+        Debug.Log(rb.velocity);
 
 		// Left click to shoot
 		if (Input.GetMouseButtonDown(0))
@@ -54,10 +40,15 @@ public class Player : MonoBehaviour
 			weapon.Shoot();
 			//Shoot();
 		}
-		//BulletSpawnPoint.transform.rotation = Quaternion.Euler(0f, 0f, GetAngle());
+        John.SetFloat("MoveX", rb.velocity.x);
+        John.SetFloat("MoveY", rb.velocity.y);
 
-		//Set animation
-		setAnimationState();
+        if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
+        {
+            John.SetFloat("LastMoveX", Input.GetAxisRaw("Horizontal"));
+            John.SetFloat("LastMoveY", Input.GetAxisRaw("Vertical"));
+        }
+ 
 	}
 
 	float GetAngle()
@@ -79,42 +70,13 @@ public class Player : MonoBehaviour
 		//bullet.GetComponent<PlayerBullet>().vec = distAngleVector;
 	}
 
-	private void SetMinusHealth(float MinusHP)
-	{
-		HP -= MinusHP;
-		if (HP <= 0)
-		{
-			// ending game
-		}
-	}
+    private void SetMinusHealth(float MinusHP)
+    {
+        HP -= MinusHP;
+        if (HP <= 0)
+        {
+            // ending game
+        }
+    }
 
-	private void setAnimationState()
-	{
-		if (Mathf.Abs(MovementSpeed) == 0)
-		{
-			John.SetBool("isWalkUp", false);
-			John.SetBool("isWalkLeft", false);
-			John.SetBool("isWalkDown", false);
-			John.SetBool("isWalkRight", false);
-		}
-		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-			John.SetBool("isWalkUp", true);
-		else
-			John.SetBool("isWalkUp", false);
-
-		if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-			John.SetBool("isWalkLeft", true);
-		else
-			John.SetBool("isWalkLeft", false);
-
-		if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-			John.SetBool("isWalkDown", true);
-		else
-			John.SetBool("isWalkDown", false);
-
-		if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-			John.SetBool("isWalkRight", true);
-		else
-			John.SetBool("isWalkRight", false);
-	}
 }
