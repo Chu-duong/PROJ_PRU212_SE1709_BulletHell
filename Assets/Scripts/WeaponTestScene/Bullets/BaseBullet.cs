@@ -16,16 +16,17 @@ namespace WeaponTestScene.Bullets
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("Enemy")) {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
                 Destroy(collision.gameObject);
-				gameObject.SetActive(false);
-			}
+                gameObject.SetActive(false);
+                Player.KillAction?.Invoke();
+            }
 
             if (collision.gameObject.CompareTag("Terrain"))
             {
                 gameObject.SetActive(false);
             }
-			
-		}
+        }
     }
 }

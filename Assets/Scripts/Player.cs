@@ -9,114 +9,116 @@ using WeaponTestScene.Guns;
 
 public class Player : MonoBehaviour
 {
-	public static bool isGameOver;
-	public float HP;
-	public float MovementSpeed;
-	public Transform BulletSpawnPoint;
-	public GameObject BulletPrefab;
-	public static UnityAction<float> MinusHealth;
-	public Animator John;
-	public Rigidbody2D rb;
-	[SerializeField]
-	private BaseRangeWeapon weapon;
+    public static bool isGameOver;
+    public float HP;
+    public float MovementSpeed;
+    public Transform BulletSpawnPoint;
+    public GameObject BulletPrefab;
+    public static UnityAction<float> MinusHealth;
+    public Animator John;
+    public Rigidbody2D rb;
+    public static int killNum = 0;
+    public static UnityAction KillAction;
 
-	// Start is called before the first frame update
-	void Start()
-	{
-		MinusHealth += SetMinusHealth;
-		rb = GetComponent<Rigidbody2D>();
-		John = GetComponent<Animator>();
-	}
+    [SerializeField]
+    private List<BaseRangeWeapon> weapons;
 
-	// Update is called once per frame
-	void Update()
-	{
-		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) // Up
-		{
-			transform.position += Vector3.up * MovementSpeed * Time.deltaTime;
-		}
-		if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) // Left
-		{
-			transform.position += Vector3.left * MovementSpeed * Time.deltaTime;
-		}
-		if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) // Down
-		{
-			transform.position += Vector3.down * MovementSpeed * Time.deltaTime;
-		}
-		if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) // Right
-		{
-			transform.position += Vector3.right * MovementSpeed * Time.deltaTime;
-		}
+    [SerializeField]
+    private BaseRangeWeapon weapon;
 
-		// Left click to shoot
-		if (Input.GetMouseButtonDown(0))
-		{
-			weapon.Shoot();
-			//Shoot();
-		}
+    // Start is called before the first frame update
+    void Start()
+    {
+        MinusHealth += SetMinusHealth;
+        rb = GetComponent<Rigidbody2D>();
+        John = GetComponent<Animator>();
+        weapon = GetWeapon(0);
+        KillAction += UpdateKill;
+    }
 
-		//BulletSpawnPoint.transform.rotation = Quaternion.Euler(0f, 0f, GetAngle());
+    // Update is called once per frame
+    void Update()
+    {
+        rb.velocity =
+            new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))
+            * MovementSpeed
+            * Time.deltaTime;
 
-		//Set animation
-		setAnimationState();
-        
-	}
+        John.SetFloat("MoveX", rb.velocity.x);
+        John.SetFloat("MoveY", rb.velocity.y);
 
-	float GetAngle()
-	{
-		Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		Vector3 distAngleVector = (worldMousePosition - transform.position).normalized;
-		return Vector3.Angle(distAngleVector, Vector3.right);
-	}
+        if (
+            Input.GetAxisRaw("Horizontal") == 1
+            || Input.GetAxisRaw("Horizontal") == -1
+            || Input.GetAxisRaw("Vertical") == 1
+            || Input.GetAxisRaw("Vertical") == -1
+        )
+        {
+            John.SetFloat("LastMoveX", Input.GetAxisRaw("Horizontal"));
+            John.SetFloat("LastMoveY", Input.GetAxisRaw("Vertical"));
+        }
 
-	private void Shoot()
-	{
-		//GameObject bullet = Instantiate(
-		//	BulletPrefab,
-		//	BulletSpawnPoint.transform.position,
-		//	BulletSpawnPoint.transform.rotation
-		//);
-		//Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		//Vector3 distAngleVector = (worldMousePosition - transform.position).normalized;
-		//bullet.GetComponent<PlayerBullet>().vec = distAngleVector;
-	}
+        // Left click to shoot
+        if (Input.GetMouseButton(0))
+        {
+            weapon.Shoot();
+            //Shoot();
+        }
+        //BulletSpawnPoint.transform.rotation = Quaternion.Euler(0f, 0f, GetAngle());
 
-	private void SetMinusHealth(float MinusHP)
-	{
-		HP -= MinusHP;
-		if (HP <= 0)
-		{
-			// ending game
-		}
-	}
+        // Update Gun base on kill
+        if (killNum == 5)
+        {
+            weapon = GetWeapon(1);
+        }
 
-	private void setAnimationState()
-	{
-		if (Mathf.Abs(MovementSpeed) == 0)
-		{
-			John.SetBool("isWalkUp", false);
-			John.SetBool("isWalkLeft", false);
-			John.SetBool("isWalkDown", false);
-			John.SetBool("isWalkRight", false);
-		}
-		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-			John.SetBool("isWalkUp", true);
-		else
-			John.SetBool("isWalkUp", false);
+        if (killNum == 10)
+        {
+            weapon = GetWeapon(2);
+        }
+    }
 
-		if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-			John.SetBool("isWalkLeft", true);
-		else
-			John.SetBool("isWalkLeft", false);
+    float GetAngle()
+    {
+        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 distAngleVector = (worldMousePosition - transform.position).normalized;
+        return Vector3.Angle(distAngleVector, Vector3.right);
+    }
 
-		if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-			John.SetBool("isWalkDown", true);
-		else
-			John.SetBool("isWalkDown", false);
+    private void Shoot()
+    {
+        //GameObject bullet = Instantiate(
+        //	BulletPrefab,
+        //	BulletSpawnPoint.transform.position,
+        //	BulletSpawnPoint.transform.rotation
+        //);
+        //Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Vector3 distAngleVector = (worldMousePosition - transform.position).normalized;
+        //bullet.GetComponent<PlayerBullet>().vec = distAngleVector;
+    }
 
-		if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-			John.SetBool("isWalkRight", true);
-		else
-			John.SetBool("isWalkRight", false);
-	}
+    private void SetMinusHealth(float MinusHP)
+    {
+        HP -= MinusHP;
+        if (HP <= 0)
+        {
+            // ending game
+        }
+    }
+
+    private void UpdateKill()
+    {
+        killNum++;
+    }
+
+    private BaseRangeWeapon GetWeapon(int index)
+    {
+        foreach (var g in weapons)
+        {
+            g.gameObject.SetActive(false);
+        }
+        var gun = weapons[index];
+        gun.gameObject.SetActive(true);
+        return gun;
+    }
 }
