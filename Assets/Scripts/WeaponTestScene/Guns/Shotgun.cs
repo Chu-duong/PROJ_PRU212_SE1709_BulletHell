@@ -45,9 +45,9 @@ public class Shotgun : BaseRangeWeapon
     private void Setup(GameObject bullet, float angle)
     {
         var position = transform.position;
-        var rotation = Bullet.transform.rotation;
+        var rotation = transform.rotation;
         bullet.transform.position = position;
-        bullet.transform.rotation = Quaternion.Euler(rotation.x, rotation.y, angle);
+        bullet.transform.rotation = rotation;
         bullet.GetComponent<BaseBullet>().Direction = GetVectorBaseRotateAngle(angle);
         bullet.GetComponent<BaseBullet>().Damage = damage;
         bullet.SetActive(true);
