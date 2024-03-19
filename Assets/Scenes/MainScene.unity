@@ -667,7 +667,7 @@ PrefabInstance:
       objectReference: {fileID: 1660486056}
     - target: {fileID: 7277968404261108743, guid: 71cb80162fdffcb44aef786b49aa7c0a, type: 3}
       propertyPath: MovementSpeed
-      value: 1500
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7277968404261108743, guid: 71cb80162fdffcb44aef786b49aa7c0a, type: 3}
       propertyPath: weapons.Array.size
