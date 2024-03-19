@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 	public GameObject BulletPrefab;
 	public static UnityAction<float> MinusHealth;
 	public Animator John;
-	public Rigidbody2D rb;
+	private Rigidbody2D rb;
 	[SerializeField]
 	private BaseRangeWeapon weapon;
 
@@ -32,14 +32,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * MovementSpeed * Time.deltaTime;
-        Debug.Log(rb.velocity);
 
-		// Left click to shoot
-		if (Input.GetMouseButtonDown(0))
-		{
-			weapon.Shoot();
-			//Shoot();
-		}
         John.SetFloat("MoveX", rb.velocity.x);
         John.SetFloat("MoveY", rb.velocity.y);
 
@@ -49,6 +42,12 @@ public class Player : MonoBehaviour
             John.SetFloat("LastMoveY", Input.GetAxisRaw("Vertical"));
         }
  
+		// Left click to shoot
+		if (Input.GetMouseButtonDown(0))
+		{
+			weapon.Shoot();
+			//Shoot();
+		}
 	}
 
 	float GetAngle()
