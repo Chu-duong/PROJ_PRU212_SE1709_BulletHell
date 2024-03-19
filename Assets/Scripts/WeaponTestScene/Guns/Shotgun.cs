@@ -8,6 +8,7 @@ public class Shotgun : BaseRangeWeapon
     private const float DIFF = 20f;
     private const int bulletPerShot = 3;
     private List<GameObject> bullets = new();
+    private const float angle = 30f;
 
     public override bool Shoot()
     {
@@ -44,7 +45,7 @@ public class Shotgun : BaseRangeWeapon
     private void Setup(GameObject bullet, float angle)
     {
         var position = transform.position;
-        var rotation = Bullet.transform.rotation;
+        var rotation = transform.rotation;
         bullet.transform.position = position;
         bullet.transform.rotation = rotation;
         bullet.GetComponent<BaseBullet>().Direction = GetVectorBaseRotateAngle(angle);
