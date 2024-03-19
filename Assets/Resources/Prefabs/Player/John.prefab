@@ -242,7 +242,8 @@ MonoBehaviour:
   BulletSpawnPoint: {fileID: 2473437137669376750}
   BulletPrefab: {fileID: 1863430134432760458, guid: d10618ad8d7589b40b056c68a0c44afc, type: 3}
   John: {fileID: 3032580624005746775}
-  rb: {fileID: 0}
+  weapons: []
+  weapon: {fileID: 0}
 --- !u!114 &6255738128409427484
 MonoBehaviour:
   m_ObjectHideFlags: 0
