@@ -4,7 +4,7 @@ public class FOLLOW : CommonEnemy
 {
     Transform player;
     public float speed;
-    public int maxHealth = 3;
+    public int maxHealth = 2;
 
     public float traiphai;
     public bool facingRight = true;

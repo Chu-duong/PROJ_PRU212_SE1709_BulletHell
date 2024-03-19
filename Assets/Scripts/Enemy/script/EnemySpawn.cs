@@ -15,16 +15,12 @@ public class EnemySpawn : MonoBehaviour
 
     private float TimeUntilSpawn;
 
-    private void Awake()
-    {
-        SetTimeUntilSpawn();
-    }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetTimeUntilSpawn();
     }
 
     // Update is called once per frame
