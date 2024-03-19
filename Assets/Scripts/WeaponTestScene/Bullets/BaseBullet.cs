@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace WeaponTestScene.Bullets
 {
     public abstract class BaseBullet : MonoBehaviour
     {
+        public static UnityAction KillAction;
         public Vector2 Direction;
 
         [SerializeField]
@@ -22,6 +24,7 @@ namespace WeaponTestScene.Bullets
                 gameObject.SetActive(false);
                 ScoreManage.scoreValue++;
                 Player.KillAction?.Invoke();
+                KillAction?.Invoke();
             }
 
             if (collision.gameObject.CompareTag("Terrain"))
