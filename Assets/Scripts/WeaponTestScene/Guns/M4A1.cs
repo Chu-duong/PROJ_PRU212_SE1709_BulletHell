@@ -1,3 +1,4 @@
+using UnityEngine;
 using WeaponTestScene.Bullets;
 using WeaponTestScene.Guns;
 
@@ -19,6 +20,7 @@ public class M4A1 : BaseRangeWeapon
                 break;
             }
         }
+        audioSource.PlayOneShot(shootingSound);
         return true;
     }
 }
