@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6073006084165150154}
   - component: {fileID: 3584682565410880619}
   - component: {fileID: 1603822658774419010}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -211,8 +211,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8001eaf615af3194eb8d2d707a80944d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 713789087821988774, guid: 2e5d05998ad4ed44eba5afc4e90c8c15, type: 3}
+  currentHealth: 0
   speed: 12
+  maxHealth: 3
   traiphai: 0
   facingRight: 1
   anim: {fileID: 0}
