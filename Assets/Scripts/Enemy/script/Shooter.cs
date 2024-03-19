@@ -22,29 +22,22 @@ public class Shooter : CommonEnemy
 
     void Update()
     {
-        Vector2 directions = (player.position - transform.position).normalized;
-        rb.MovePosition(rb.position + directions * 2 * Time.deltaTime);
+        Vector2 direction = (player.position - transform.position).normalized;
+        rb.MovePosition(rb.position + direction * 2 * Time.deltaTime);
 
         // Đảo chiều hình ảnh nếu cần
-        if (directions.x > 0)
-        {
-            transform.localScale = new Vector3(
-                Mathf.Abs(transform.localScale.x),
-                transform.localScale.y,
-                transform.localScale.z
-            );
-        }
-        else if (directions.x < 0)
-        {
-            transform.localScale = new Vector3(
-                -Mathf.Abs(transform.localScale.x),
-                transform.localScale.y,
-                transform.localScale.z
-            );
-        }
+        Vector3 directionToPlayer = player.position - transform.position;
+        directionToPlayer.Normalize();
 
-        // Check if player is not null and it's time to shoot
-        if (player != null && Time.time >= shootTimer)
+        // Calculate the angle to rotate
+        float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+
+        // Rotate towards the player
+        Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
+
+        // Kiểm tra nếu player không null và khoảng cách nhỏ hơn 10
+        if (player != null && Vector2.Distance(transform.position, player.position) <= 10 && Time.time >= shootTimer)
         {
             // Flip enemy if its x position is greater than player's x position
             if (transform.position.x > player.position.x)
@@ -59,17 +52,19 @@ public class Shooter : CommonEnemy
             }
 
             // Calculate direction towards the player
-            Vector3 direction = (player.position - bulletSpawnPoint.position).normalized;
+            Vector3 directionToPlayerNormalized = (player.position - bulletSpawnPoint.position).normalized;
 
             // Rotate enemy to face the player
-            transform.right = direction;
+            transform.right = directionToPlayerNormalized;
 
             // Shoot
             Shoot();
+
             // Reset shoot timer
             shootTimer = Time.time + shootInterval;
         }
     }
+
 
     void Shoot()
     {

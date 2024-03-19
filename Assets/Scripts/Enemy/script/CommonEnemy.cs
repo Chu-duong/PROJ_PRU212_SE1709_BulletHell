@@ -22,4 +22,7 @@ public abstract class CommonEnemy : MonoBehaviour
         KillAction?.Invoke();
         Destroy(gameObject);
     }
+
+    
+
 }
