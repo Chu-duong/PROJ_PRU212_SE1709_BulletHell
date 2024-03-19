@@ -23,7 +23,6 @@ namespace WeaponTestScene.Bullets
                 Destroy(collision.gameObject);
                 gameObject.SetActive(false);
                 ScoreManage.scoreValue++;
-                Player.KillAction?.Invoke();
                 KillAction?.Invoke();
             }
 
