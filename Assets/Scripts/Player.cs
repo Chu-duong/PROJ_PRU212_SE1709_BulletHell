@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         John = GetComponent<Animator>();
         weapon = GetWeapon(gunIndex);
-        BaseBullet.KillAction += UpdateKill;
+        CommonEnemy.KillAction += UpdateKill;
         PlayerCollsion.MinusHealthAction += MinusHealthEvent;
     }
 
