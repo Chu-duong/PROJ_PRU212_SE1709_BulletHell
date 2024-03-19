@@ -8,9 +8,55 @@ public class Shooter : MonoBehaviour
     public float shootInterval = 1.0f; // Interval between shots
     private float shootTimer = 0f; // Timer for shooting
     public float bulletSpeed = 10f; // Speed of the bullet
+    Rigidbody2D rb;
+
+    public int maxHealth = 2;
+    public int currentHealth;
+
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
 
     void Update()
     {
+
+        Vector2 directions = (player.position - transform.position).normalized;
+        rb.MovePosition(rb.position + directions * 3 * Time.deltaTime);
+
+        // Đảo chiều hình ảnh nếu cần
+        if (directions.x > 0)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+
+        }
+        else if (directions.x < 0)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+
+        }
 
         // Check if player is not null and it's time to shoot
         if (player != null && Time.time >= shootTimer)
@@ -42,6 +88,8 @@ public class Shooter : MonoBehaviour
 
         // Shoot
         Shoot();
+
+        
 
 
     }
