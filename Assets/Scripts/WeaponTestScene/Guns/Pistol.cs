@@ -1,3 +1,4 @@
+using UnityEngine;
 using WeaponTestScene.Bullets;
 using WeaponTestScene.Guns;
 
@@ -21,6 +22,7 @@ namespace WeaponTestScene
                     break;
                 }
             }
+            audioSource.PlayOneShot(shootingSound);
             return true;
         }
     }

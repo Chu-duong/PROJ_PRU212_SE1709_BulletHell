@@ -73,6 +73,7 @@ namespace WeaponTestScene.Guns
             --checkMag;
             timeCheck = checkMag > 0 ? RecoilTime : ReloadTime;
             allowShooting = false;
+            audioSource.PlayOneShot(shootingSound);
             return true;
         }
 

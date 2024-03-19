@@ -51,5 +51,6 @@ public class Shotgun : BaseRangeWeapon
         bullet.GetComponent<BaseBullet>().Direction = GetVectorBaseRotateAngle(angle);
         bullet.GetComponent<BaseBullet>().Damage = damage;
         bullet.SetActive(true);
+        audioSource.PlayOneShot(shootingSound);
     }
 }
