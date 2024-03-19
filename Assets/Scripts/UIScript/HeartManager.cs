@@ -14,6 +14,7 @@ public class HeartManager : MonoBehaviour
 
     private void Start()
     {
+        GameState.Set(State.INGAME);
         health = 3;
     }
 

@@ -5,7 +5,6 @@ namespace WeaponTestScene.Bullets
 {
     public abstract class BaseBullet : MonoBehaviour
     {
-        public static UnityAction KillAction;
         public Vector2 Direction;
 
         [SerializeField]
@@ -14,16 +13,14 @@ namespace WeaponTestScene.Bullets
         [SerializeField]
         public float Speed;
 
-        public float Damage;
+        public int Damage;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                Destroy(collision.gameObject);
+                collision.gameObject.GetComponent<CommonEnemy>().TakeDamage(Damage);
                 gameObject.SetActive(false);
-                ScoreManage.scoreValue++;
-                KillAction?.Invoke();
             }
 
             if (collision.gameObject.CompareTag("Terrain"))

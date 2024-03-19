@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace WeaponTestScene.Guns
 {
@@ -17,7 +18,7 @@ namespace WeaponTestScene.Guns
         [SerializeField]
         public float RecoilTime;
         private float timeCheck;
-        protected int checkMag;
+        protected static int checkMag;
         private bool allowShooting;
 
         private void Start()
@@ -86,6 +87,11 @@ namespace WeaponTestScene.Guns
             float rotation = mousePosition.x < transform.position.x ? 180f : 0f;
             transform.rotation = Quaternion.Euler(0f, 0f, angle);
             transform.Rotate(xAngle: rotation, yAngle: 0, zAngle: 0f);
+        }
+
+        public static int GetAmo()
+        {
+            return checkMag;
         }
     }
 }

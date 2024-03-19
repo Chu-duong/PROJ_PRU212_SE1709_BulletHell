@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class Shooter : MonoBehaviour
+public class Shooter : CommonEnemy
 {
-     Transform player; // Player's transform
+    Transform player; // Player's transform
     public Transform bulletSpawnPoint; // Bullet spawn point
     public GameObject bulletPrefab; // Bullet prefab
 
@@ -12,49 +12,35 @@ public class Shooter : MonoBehaviour
     Rigidbody2D rb;
 
     public int maxHealth = 2;
-    public int currentHealth;
-
-
-    
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         currentHealth = maxHealth;
-         rb = GetComponent<Rigidbody2D>();
-    }
-
-    public void TakeDamage(int damageAmount)
-    {
-        currentHealth -= damageAmount;
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        Destroy(gameObject);
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-
         Vector2 directions = (player.position - transform.position).normalized;
         rb.MovePosition(rb.position + directions * 2 * Time.deltaTime);
 
         // Đảo chiều hình ảnh nếu cần
         if (directions.x > 0)
         {
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-
+            transform.localScale = new Vector3(
+                Mathf.Abs(transform.localScale.x),
+                transform.localScale.y,
+                transform.localScale.z
+            );
         }
         else if (directions.x < 0)
         {
-            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-
+            transform.localScale = new Vector3(
+                -Mathf.Abs(transform.localScale.x),
+                transform.localScale.y,
+                transform.localScale.z
+            );
         }
 
         // Check if player is not null and it's time to shoot
@@ -83,18 +69,16 @@ public class Shooter : MonoBehaviour
             // Reset shoot timer
             shootTimer = Time.time + shootInterval;
         }
-
-        
-
-        
-
-
     }
 
     void Shoot()
     {
         // Instantiate bullet at the bullet spawn point
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+        GameObject bullet = Instantiate(
+            bulletPrefab,
+            bulletSpawnPoint.position,
+            Quaternion.identity
+        );
 
         // Calculate direction towards the player
         Vector3 direction = (player.position - bulletSpawnPoint.position).normalized;
@@ -105,5 +89,4 @@ public class Shooter : MonoBehaviour
         // Destroy bullet after some time
         Destroy(bullet, 3f);
     }
-
 }

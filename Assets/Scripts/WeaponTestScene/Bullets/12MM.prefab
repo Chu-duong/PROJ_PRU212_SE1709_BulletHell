@@ -102,7 +102,7 @@ MonoBehaviour:
   Direction: {x: 0, y: 0}
   TimeOut: 4
   Speed: 20
-  Damage: 10
+  Damage: 1
 --- !u!70 &9214806341186219263
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
