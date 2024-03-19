@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public GameObject BulletPrefab;
     public static UnityAction<float> MinusHealth;
     public Animator John;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
     public static int killNum = 0;
     public static UnityAction KillAction;
 
