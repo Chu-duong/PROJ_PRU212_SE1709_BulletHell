@@ -29,11 +29,12 @@ public class GameOverManage : MonoBehaviour
     }
     public void mainMenu()
     {
+        ScoreManage.scoreValue = 0;
         SceneManager.LoadScene("MenuScreen");
     }
     public void restart()
     {
-        
+        ScoreManage.scoreValue= 0;
         HeartManager.health = 3;
         SceneManager.LoadScene("MainScene");
         
