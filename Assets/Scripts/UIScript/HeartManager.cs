@@ -12,6 +12,11 @@ public class HeartManager : MonoBehaviour
     public Sprite emptyheart;
     // Start is called before the first frame update
 
+    private void Start()
+    {
+        health = 3;
+    }
+
     // Update is called once per frame
     void Update()
     {

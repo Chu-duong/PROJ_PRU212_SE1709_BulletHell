@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 713789087821988774, guid: 2e5d05998ad4ed44eba5afc4e90c8c15, type: 3}
-  speed: 10
+  speed: 12
   traiphai: 0
   facingRight: 1
   anim: {fileID: 0}
