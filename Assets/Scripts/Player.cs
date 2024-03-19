@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private BaseRangeWeapon weapon;
 
+    Vector2 movement;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,13 +41,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity =
-            new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))
-            * MovementSpeed
-            * Time.deltaTime;
+        //rb.velocity =
+        //    new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))
+        //    * MovementSpeed
+        //    * Time.deltaTime;
 
-        John.SetFloat("MoveX", rb.velocity.x);
-        John.SetFloat("MoveY", rb.velocity.y);
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        John.SetFloat("MoveX", movement.x);
+        John.SetFloat("MoveY", movement.y);
 
         if (
             Input.GetAxisRaw("Horizontal") == 1
@@ -76,6 +81,11 @@ public class Player : MonoBehaviour
         {
             weapon = GetWeapon(2);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + movement * MovementSpeed * Time.deltaTime);
     }
 
     float GetAngle()
