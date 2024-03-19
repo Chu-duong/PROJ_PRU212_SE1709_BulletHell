@@ -180,6 +180,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7537505189763211441, guid: 4c48435bfd0e2b24f8bdb949431410d9, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7537505189763211441, guid: 4c48435bfd0e2b24f8bdb949431410d9, type: 3}
       propertyPath: RecoilTime
       value: 0.2
       objectReference: {fileID: 0}
@@ -1044,6 +1048,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8369955268197446973, guid: 10d56a3d24caadf4d930d795e2fae029, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1572,6 +1580,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1502536958}
     m_Modifications:
+    - target: {fileID: 4950207411442420600, guid: 33561c20c40a1de43bf21239bbcf69e4, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8895562040794486146, guid: 33561c20c40a1de43bf21239bbcf69e4, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
