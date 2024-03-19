@@ -153,6 +153,8 @@ public class Player : MonoBehaviour
 
     private void MinusHealthEvent()
     {
+        if (gunIndex == 0)
+            return;
         weapon = GetWeapon(--gunIndex);
         if (killCountForGun > M4A1_KILL)
             killCountForGun = M4A1_KILL;

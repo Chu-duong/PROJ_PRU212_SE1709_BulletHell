@@ -43,4 +43,11 @@ public class BulletController : MonoBehaviour
             list.Add(bulletGameObject);
         }
     }
+
+    void OnDestroy()
+    {
+        ListFiveDotSixTwoBullets.Clear();
+        ListNineMMBullets.Clear();
+        ListTwelveMMBullets.Clear();
+    }
 }
