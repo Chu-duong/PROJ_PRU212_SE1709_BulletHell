@@ -11,7 +11,7 @@ public class PlayerCollsion : MonoBehaviour
             HeartManager.health--; 
             if(HeartManager.health <= 0 )
             {
-                Player.isGameOver = true; 
+               
             }
             else
             {
