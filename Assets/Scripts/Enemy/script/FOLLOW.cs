@@ -47,6 +47,8 @@ public class FOLLOW : MonoBehaviour
 {
     public Transform player;
     public float speed;
+    public int maxHealth = 3;
+    public int currentHealth;
 
     public float traiphai;
     public bool facingRight = true;
@@ -61,6 +63,26 @@ public class FOLLOW : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 
     void Update()
