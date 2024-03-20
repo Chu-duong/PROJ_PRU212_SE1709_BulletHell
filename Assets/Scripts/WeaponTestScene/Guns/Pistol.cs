@@ -22,7 +22,6 @@ namespace WeaponTestScene
                     break;
                 }
             }
-            audioSource.PlayOneShot(shootingSound);
             return true;
         }
     }
