@@ -1414,7 +1414,7 @@ PrefabInstance:
     - target: {fileID: 8369955268197446973, guid: 10d56a3d24caadf4d930d795e2fae029, type: 3}
       propertyPath: shootingSound
       value: 
-      objectReference: {fileID: 8300000, guid: 27d7148a1afb4ba4aa83c63603492c34, type: 3}
+      objectReference: {fileID: 8300000, guid: 06d3cb8e28f0d3d49b45e7ca0ff0b378, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
