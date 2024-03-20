@@ -1469,6 +1469,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8369955268197446973, guid: 10d56a3d24caadf4d930d795e2fae029, type: 3}
+      propertyPath: ReloadTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8369955268197446973, guid: 10d56a3d24caadf4d930d795e2fae029, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 584491979}
@@ -2006,6 +2010,10 @@ PrefabInstance:
     - target: {fileID: 4950207411442420600, guid: 33561c20c40a1de43bf21239bbcf69e4, type: 3}
       propertyPath: damage
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4950207411442420600, guid: 33561c20c40a1de43bf21239bbcf69e4, type: 3}
+      propertyPath: ReloadTime
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4950207411442420600, guid: 33561c20c40a1de43bf21239bbcf69e4, type: 3}
       propertyPath: audioSource
