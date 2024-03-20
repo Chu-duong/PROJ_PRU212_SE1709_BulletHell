@@ -17,8 +17,9 @@ namespace WeaponTestScene.Bullets
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("Player"))
+            if (collision.gameObject.CompareTag("Enemy"))
             {
+                collision.gameObject.GetComponent<CommonEnemy>().TakeDamage(Damage);
                 gameObject.SetActive(false);
             }
 
